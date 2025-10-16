@@ -959,36 +959,29 @@ body {
     z-index: 15;
     white-space: nowrap;
     pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
 }
 
 .wheel-segment:nth-child(1) .segment-text {
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(0deg) translateY(-60px);
 }
 
 .wheel-segment:nth-child(2) .segment-text {
-    top: 10%;
-    left: 80%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(72deg) translateY(-60px);
 }
 
 .wheel-segment:nth-child(3) .segment-text {
-    top: 30%;
-    left: 90%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(144deg) translateY(-60px);
 }
 
 .wheel-segment:nth-child(4) .segment-text {
-    top: 70%;
-    left: 80%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(216deg) translateY(-60px);
 }
 
 .wheel-segment:nth-child(5) .segment-text {
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(288deg) translateY(-60px);
 }
 
 .wheel-center {
