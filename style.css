@@ -135,30 +135,33 @@ body {
 .main-content {
     flex: 1;
     margin-left: 240px;
-    padding: 24px 32px;
-    background-color: #f5f5f5;
+    background-color: white;
     min-height: 100vh;
 }
 
+/* Dark Blue Header Bar */
 .content-header {
-    margin-bottom: 24px;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 24px 32px;
+    margin-bottom: 0;
 }
 
 .content-header h1 {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
-    color: #1a1a1a;
-    margin: 0;
+    color: white;
+    margin: 0 0 16px 0;
 }
 
-/* Status Tabs */
+/* Status Tabs - positioned in header */
 .status-tabs {
     display: flex;
     gap: 0;
     margin-bottom: 16px;
-    background-color: #e9ecef;
-    border-radius: 6px;
-    padding: 4px;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
     width: fit-content;
 }
 
@@ -167,58 +170,65 @@ body {
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
-    color: #6c757d;
-    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 0;
     transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
 }
 
 .tab:hover {
-    color: #495057;
+    color: white;
 }
 
 .tab.active {
-    background-color: white;
-    color: #dc3545;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background-color: transparent;
+    color: white;
+    border-bottom-color: #dc3545;
+    box-shadow: none;
+    font-weight: 600;
 }
 
-/* Time Period Filters */
+/* Time Period Filters - positioned in header */
 .time-filters {
     display: flex;
     gap: 0;
-    margin-bottom: 20px;
-    background-color: #e9ecef;
-    border-radius: 6px;
-    padding: 4px;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
     width: fit-content;
+    margin-left: auto;
 }
 
 .time-tab {
-    padding: 6px 12px;
+    padding: 8px 16px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
-    color: #6c757d;
-    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 0;
     transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
 }
 
 .time-tab:hover {
-    color: #495057;
+    color: white;
 }
 
 .time-tab.active {
-    background-color: white;
-    color: #dc3545;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background-color: transparent;
+    color: white;
+    border-bottom-color: #dc3545;
+    box-shadow: none;
+    font-weight: 600;
 }
 
-/* Top Controls */
+/* Top Controls - positioned in header */
 .top-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 0;
 }
 
 .dropdown-filters {
@@ -231,22 +241,23 @@ body {
     align-items: center;
     gap: 8px;
     padding: 8px 12px;
-    background-color: white;
-    border: 1px solid #dee2e6;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
-    color: #6c757d;
+    color: rgba(255, 255, 255, 0.9);
     transition: all 0.2s ease;
 }
 
 .dropdown-filter:hover {
-    border-color: #adb5bd;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .dropdown-filter i {
     font-size: 12px;
-    color: #6c757d;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .new-order-btn {
@@ -263,6 +274,11 @@ body {
 
 .new-order-btn:hover {
     background-color: #218838;
+}
+
+/* White Content Area */
+.content-body {
+    padding: 24px 32px;
 }
 
 /* Table Controls */
