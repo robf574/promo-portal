@@ -913,6 +913,15 @@ body {
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease;
+}
+
+.wheel-segment::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: inherit;
+    transform-origin: 0 0;
     clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
@@ -942,15 +951,15 @@ body {
 }
 
 .segment-text {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     z-index: 2;
+    white-space: nowrap;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .wheel-center {
