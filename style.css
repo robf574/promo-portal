@@ -897,43 +897,44 @@ body {
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
 }
 
 .wheel-segment:nth-child(1) {
     background: #ff6b6b;
-    transform: rotate(0deg) skewY(-18deg);
+    transform: rotate(0deg);
 }
 
 .wheel-segment:nth-child(2) {
     background: #4ecdc4;
-    transform: rotate(72deg) skewY(-18deg);
+    transform: rotate(72deg);
 }
 
 .wheel-segment:nth-child(3) {
     background: #45b7d1;
-    transform: rotate(144deg) skewY(-18deg);
+    transform: rotate(144deg);
 }
 
 .wheel-segment:nth-child(4) {
     background: #96ceb4;
-    transform: rotate(216deg) skewY(-18deg);
+    transform: rotate(216deg);
 }
 
 .wheel-segment:nth-child(5) {
     background: #feca57;
-    transform: rotate(288deg) skewY(-18deg);
+    transform: rotate(288deg);
 }
 
 .segment-text {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    transform: skewY(18deg) rotate(36deg);
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%) skewY(18deg) rotate(36deg);
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .wheel-center {
