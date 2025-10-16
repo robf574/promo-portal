@@ -218,7 +218,192 @@ function resetForm() {
 }
 
 function showOrderSuccess() {
-    // Create success modal
+    // Create success modal with spin the wheel
+    const successModal = document.createElement('div');
+    successModal.className = 'modal-overlay active';
+    successModal.innerHTML = `
+        <div class="modal-content wheel-modal" style="max-width: 600px; text-align: center;">
+            <div class="modal-header">
+                <h2 style="color: #28a745;">Order Placed Successfully!</h2>
+                <button class="close-btn" onclick="this.closest('.modal-overlay').remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="wheel-container">
+                    <h3 style="margin-bottom: 20px; color: #333;">Feeling Lucky?</h3>
+                    <p style="margin-bottom: 30px; color: #6c757d;">
+                        If your order has no issues, you get a discount related to the % the wheel lands on.<br>
+                        Any issues and you pay the same % as a premium penalty.
+                    </p>
+                    
+                    <div class="wheel-wrapper">
+                        <div class="wheel-pointer"></div>
+                        <div class="wheel" id="discountWheel">
+                            <div class="wheel-segment" data-segment="0">
+                                <span class="segment-text">?</span>
+                            </div>
+                            <div class="wheel-segment" data-segment="1">
+                                <span class="segment-text">?</span>
+                            </div>
+                            <div class="wheel-segment" data-segment="2">
+                                <span class="segment-text">?</span>
+                            </div>
+                            <div class="wheel-segment" data-segment="3">
+                                <span class="segment-text">?</span>
+                            </div>
+                            <div class="wheel-segment" data-segment="4">
+                                <span class="segment-text">?</span>
+                            </div>
+                        </div>
+                        <div class="wheel-center">
+                            <button class="spin-btn" id="spinBtn" onclick="spinWheel()">SPIN</button>
+                        </div>
+                    </div>
+                    
+                    <div class="wheel-buttons">
+                        <button class="continue-btn" onclick="continueWithoutGamble()">
+                            Continue without the gamble
+                        </button>
+                        <button class="gamble-btn" onclick="startGamble()">
+                            Gamble
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(successModal);
+    
+    // Auto-remove after 30 seconds if no interaction
+    setTimeout(() => {
+        if (successModal.parentNode) {
+            successModal.remove();
+        }
+    }, 30000);
+}
+
+// Wheel spinning functionality
+let isSpinning = false;
+let wheelSegments = [5, 10, 15, 20, 25]; // Default percentages
+
+function startGamble() {
+    const segments = document.querySelectorAll('.wheel-segment');
+    const spinBtn = document.getElementById('spinBtn');
+    
+    // Disable gamble button
+    document.querySelector('.gamble-btn').disabled = true;
+    document.querySelector('.gamble-btn').textContent = 'Revealing...';
+    
+    // Reveal percentages one by one
+    segments.forEach((segment, index) => {
+        setTimeout(() => {
+            segment.querySelector('.segment-text').textContent = wheelSegments[index] + '%';
+            segment.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                segment.style.transform = 'scale(1)';
+            }, 200);
+        }, index * 500);
+    });
+    
+    // Enable spin button after all percentages are revealed
+    setTimeout(() => {
+        spinBtn.disabled = false;
+        spinBtn.textContent = 'SPIN';
+        document.querySelector('.gamble-btn').textContent = 'Gamble';
+        document.querySelector('.gamble-btn').disabled = false;
+    }, segments.length * 500 + 1000);
+}
+
+function spinWheel() {
+    if (isSpinning) return;
+    
+    const wheel = document.getElementById('discountWheel');
+    const spinBtn = document.getElementById('spinBtn');
+    
+    isSpinning = true;
+    spinBtn.disabled = true;
+    spinBtn.textContent = 'SPINNING...';
+    
+    // Random rotation (5-7 full rotations + random segment)
+    const randomSegment = Math.floor(Math.random() * 5);
+    const baseRotation = 1800 + (randomSegment * 72); // 5 full rotations + segment offset
+    const finalRotation = baseRotation + (Math.random() * 72); // Add some randomness
+    
+    wheel.style.transition = 'transform 3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    wheel.style.transform = `rotate(${finalRotation}deg)`;
+    
+    // Show result after spin
+    setTimeout(() => {
+        const percentage = wheelSegments[randomSegment];
+        showWheelResult(percentage, randomSegment);
+        isSpinning = false;
+    }, 3000);
+}
+
+function showWheelResult(percentage, segmentIndex) {
+    // Create result modal
+    const resultModal = document.createElement('div');
+    resultModal.className = 'modal-overlay active';
+    
+    // Simulate order issues (random for demo)
+    const hasIssues = Math.random() < 0.3; // 30% chance of issues
+    
+    resultModal.innerHTML = `
+        <div class="modal-content" style="max-width: 500px; text-align: center;">
+            <div class="modal-header">
+                <h2 style="color: ${hasIssues ? '#dc3545' : '#28a745'};">
+                    ${hasIssues ? 'Premium Penalty!' : 'Discount Applied!'}
+                </h2>
+                <button class="close-btn" onclick="this.closest('.modal-overlay').remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="font-size: 64px; margin-bottom: 20px;">
+                    ${hasIssues ? '⚠️' : '🎉'}
+                </div>
+                <div style="font-size: 48px; font-weight: bold; color: ${hasIssues ? '#dc3545' : '#28a745'}; margin-bottom: 20px;">
+                    ${percentage}%
+                </div>
+                <p style="font-size: 18px; margin-bottom: 20px;">
+                    ${hasIssues 
+                        ? `Your order has issues. You'll pay ${percentage}% premium penalty.` 
+                        : `Congratulations! You get ${percentage}% discount on your order.`
+                    }
+                </p>
+                <p style="color: #6c757d; margin-bottom: 30px;">
+                    ${hasIssues 
+                        ? 'The penalty will be added to your final invoice.' 
+                        : 'The discount will be applied to your final invoice.'
+                    }
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="place-order-btn" onclick="this.closest('.modal-overlay').remove()" style="background-color: #007bff;">
+                    Continue
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(resultModal);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+        if (resultModal.parentNode) {
+            resultModal.remove();
+        }
+    }, 10000);
+}
+
+function continueWithoutGamble() {
+    // Close the wheel modal and show simple success
+    const wheelModal = document.querySelector('.wheel-modal').closest('.modal-overlay');
+    wheelModal.remove();
+    
+    // Show simple success message
     const successModal = document.createElement('div');
     successModal.className = 'modal-overlay active';
     successModal.innerHTML = `
@@ -245,13 +430,6 @@ function showOrderSuccess() {
     `;
     
     document.body.appendChild(successModal);
-    
-    // Auto-remove after 5 seconds
-    setTimeout(() => {
-        if (successModal.parentNode) {
-            successModal.remove();
-        }
-    }, 5000);
 }
 
 // Navigation functionality
