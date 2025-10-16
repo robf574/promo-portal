@@ -276,6 +276,102 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Status tabs functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const statusTabs = document.querySelectorAll('.tab');
+    
+    statusTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            statusTabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Here you would filter the table based on status
+            const status = this.textContent;
+            console.log(`Filtering by status: ${status}`);
+        });
+    });
+});
+
+// Time period filters functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const timeTabs = document.querySelectorAll('.time-tab');
+    
+    timeTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all time tabs
+            timeTabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Update footer text based on selection
+            const footerText = document.querySelector('.footer-text');
+            const period = this.textContent;
+            
+            if (period === '6M') {
+                footerText.textContent = 'Showing orders from past 6 months. Use the top toolbar to select time period.';
+            } else if (period === '12M') {
+                footerText.textContent = 'Showing orders from past 12 months. Use the top toolbar to select time period.';
+            } else {
+                footerText.textContent = 'Showing all orders. Use the top toolbar to select time period.';
+            }
+            
+            console.log(`Filtering by time period: ${period}`);
+        });
+    });
+});
+
+// Dropdown filters functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownFilters = document.querySelectorAll('.dropdown-filter');
+    
+    dropdownFilters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            // Here you would show a dropdown menu
+            console.log(`Opening dropdown: ${this.querySelector('span').textContent}`);
+        });
+    });
+});
+
+// Control buttons functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const controlButtons = document.querySelectorAll('.control-btn');
+    
+    controlButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const action = this.textContent.trim();
+            console.log(`Control action: ${action}`);
+            
+            // Here you would implement the specific control actions
+            if (action === 'COLUMNS') {
+                alert('Columns control would open here');
+            } else if (action === 'FILTERS') {
+                alert('Filters control would open here');
+            } else if (action === 'DENSITY') {
+                alert('Density control would open here');
+            }
+        });
+    });
+});
+
+// Search functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.search-bar input');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value;
+            console.log(`Searching for: ${searchTerm}`);
+            
+            // Here you would implement search functionality
+            // For now, we'll just log the search term
+        });
+    }
+});
+
 // Table row click functionality
 document.addEventListener('DOMContentLoaded', function() {
     const tableRows = document.querySelectorAll('.table-row');

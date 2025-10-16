@@ -66,19 +66,74 @@
         <main class="main-content">
             <div class="content-header">
                 <h1>ORDERS</h1>
-                <div class="header-controls">
-                    <div class="filter-section">
-                        <span class="filter-active">ALL</span>
-                        <span class="filter-label">Filter by</span>
+            </div>
+
+            <!-- Status Tabs -->
+            <div class="status-tabs">
+                <div class="tab active">ALL</div>
+                <div class="tab">NEW</div>
+                <div class="tab">PENDING</div>
+                <div class="tab">IN PROGRESS</div>
+                <div class="tab">DONE</div>
+                <div class="tab">BLOCKED</div>
+            </div>
+
+            <!-- Time Period Filters -->
+            <div class="time-filters">
+                <div class="time-tab active">6M</div>
+                <div class="time-tab">12M</div>
+                <div class="time-tab">ALL</div>
+            </div>
+
+            <!-- Top Controls -->
+            <div class="top-controls">
+                <div class="dropdown-filters">
+                    <div class="dropdown-filter">
+                        <span>Filter by Markets</span>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    <button class="new-order-btn" onclick="openNewOrderModal()">
-                        NEW ORDER
+                    <div class="dropdown-filter">
+                        <span>Filter by Studios</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <button class="new-order-btn" onclick="openNewOrderModal()">
+                    NEW ORDER
+                </button>
+            </div>
+
+            <!-- Table Controls -->
+            <div class="table-controls">
+                <div class="control-buttons">
+                    <button class="control-btn">
+                        <i class="fas fa-columns"></i>
+                        COLUMNS
                     </button>
+                    <button class="control-btn">
+                        <i class="fas fa-filter"></i>
+                        FILTERS
+                    </button>
+                    <button class="control-btn">
+                        <i class="fas fa-bars"></i>
+                        DENSITY
+                    </button>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
                 </div>
             </div>
 
             <div class="orders-table">
                 <div class="table-header">
+                    <div class="header-cell">Status</div>
+                    <div class="header-cell">ID</div>
+                    <div class="header-cell">Studio</div>
+                    <div class="header-cell">Owner</div>
+                    <div class="header-cell">Summary</div>
+                    <div class="header-cell">Product</div>
+                    <div class="header-cell">Markets</div>
+                    <div class="header-cell">Issues</div>
                     <div class="header-cell">Priority</div>
                     <div class="header-cell">Created</div>
                     <div class="header-cell">Target</div>
@@ -86,6 +141,16 @@
                 
                 <div class="table-body">
                     <div class="table-row">
+                        <div class="status-cell">
+                            <span class="status-badge new">NEW</span>
+                        </div>
+                        <div class="id-cell">PR-1043</div>
+                        <div class="studio-cell">Papaya Studios</div>
+                        <div class="owner-cell">Rob Fell</div>
+                        <div class="summary-cell">Best Game Fo...</div>
+                        <div class="product-cell">BR</div>
+                        <div class="markets-cell">UK</div>
+                        <div class="issues-cell">0</div>
                         <div class="priority-cell">
                             <span class="priority-dot high"></span>
                             <span>HIGH</span>
@@ -94,6 +159,16 @@
                         <div class="date-cell">21 Jun 2025</div>
                     </div>
                     <div class="table-row">
+                        <div class="status-cell">
+                            <span class="status-badge new">NEW</span>
+                        </div>
+                        <div class="id-cell">PR-1046</div>
+                        <div class="studio-cell">Mango Studios</div>
+                        <div class="owner-cell">Sarah Johnson</div>
+                        <div class="summary-cell">Slot Machine...</div>
+                        <div class="product-cell">SL</div>
+                        <div class="markets-cell">US</div>
+                        <div class="issues-cell">0</div>
                         <div class="priority-cell">
                             <span class="priority-dot medium"></span>
                             <span>MEDIUM</span>
@@ -102,6 +177,16 @@
                         <div class="date-cell">02 Aug 2025</div>
                     </div>
                     <div class="table-row">
+                        <div class="status-cell">
+                            <span class="status-badge new">NEW</span>
+                        </div>
+                        <div class="id-cell">PR-1047</div>
+                        <div class="studio-cell">Pineapple Games</div>
+                        <div class="owner-cell">Mike Chen</div>
+                        <div class="summary-cell">Card Game...</div>
+                        <div class="product-cell">CG</div>
+                        <div class="markets-cell">EU</div>
+                        <div class="issues-cell">0</div>
                         <div class="priority-cell">
                             <span class="priority-dot medium"></span>
                             <span>MEDIUM</span>
@@ -110,6 +195,16 @@
                         <div class="date-cell">05 Oct 2025</div>
                     </div>
                     <div class="table-row">
+                        <div class="status-cell">
+                            <span class="status-badge new">NEW</span>
+                        </div>
+                        <div class="id-cell">PR-1048</div>
+                        <div class="studio-cell">Banana Studios</div>
+                        <div class="owner-cell">Lisa Wang</div>
+                        <div class="summary-cell">Roulette...</div>
+                        <div class="product-cell">RT</div>
+                        <div class="markets-cell">CA</div>
+                        <div class="issues-cell">0</div>
                         <div class="priority-cell">
                             <span class="priority-dot medium"></span>
                             <span>MEDIUM</span>
@@ -118,6 +213,16 @@
                         <div class="date-cell">12 Oct 2025</div>
                     </div>
                     <div class="table-row">
+                        <div class="status-cell">
+                            <span class="status-badge new">NEW</span>
+                        </div>
+                        <div class="id-cell">PR-1049</div>
+                        <div class="studio-cell">Apple Gaming</div>
+                        <div class="owner-cell">David Smith</div>
+                        <div class="summary-cell">Blackjack...</div>
+                        <div class="product-cell">BJ</div>
+                        <div class="markets-cell">AU</div>
+                        <div class="issues-cell">0</div>
                         <div class="priority-cell">
                             <span class="priority-dot medium"></span>
                             <span>MEDIUM</span>
@@ -126,6 +231,16 @@
                         <div class="date-cell">09 Oct 2025</div>
                     </div>
                     <div class="table-row">
+                        <div class="status-cell">
+                            <span class="status-badge new">NEW</span>
+                        </div>
+                        <div class="id-cell">PR-1050</div>
+                        <div class="studio-cell">Orange Studios</div>
+                        <div class="owner-cell">Emma Brown</div>
+                        <div class="summary-cell">Poker Game...</div>
+                        <div class="product-cell">PK</div>
+                        <div class="markets-cell">NZ</div>
+                        <div class="issues-cell">0</div>
                         <div class="priority-cell">
                             <span class="priority-dot medium"></span>
                             <span>MEDIUM</span>
@@ -134,6 +249,16 @@
                         <div class="date-cell">09 Oct 2025</div>
                     </div>
                     <div class="table-row">
+                        <div class="status-cell">
+                            <span class="status-badge new">NEW</span>
+                        </div>
+                        <div class="id-cell">PR-1051</div>
+                        <div class="studio-cell">Grape Games</div>
+                        <div class="owner-cell">Tom Wilson</div>
+                        <div class="summary-cell">Bingo...</div>
+                        <div class="product-cell">BG</div>
+                        <div class="markets-cell">JP</div>
+                        <div class="issues-cell">0</div>
                         <div class="priority-cell">
                             <span class="priority-dot medium"></span>
                             <span>MEDIUM</span>
@@ -151,6 +276,10 @@
                     <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
                     <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
+            </div>
+
+            <div class="footer-text">
+                Showing orders from past 6 months. Use the top toolbar to select time period.
             </div>
         </main>
     </div>
