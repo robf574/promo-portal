@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiskCherry Client Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cherry"></i>
+                </div>
+                <span class="logo-text">RiskCherry</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-item active">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Orders</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Issues</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>Certificates</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Client Details</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-gem"></i>
+                    <span>Casino Brands</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Notifications</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Quotes</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Invoices</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Guide</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>ORDERS</h1>
+                <div class="header-controls">
+                    <div class="filter-section">
+                        <span class="filter-active">ALL</span>
+                        <span class="filter-label">Filter by</span>
+                    </div>
+                    <button class="new-order-btn" onclick="openNewOrderModal()">
+                        NEW ORDER
+                    </button>
+                </div>
+            </div>
+
+            <div class="orders-table">
+                <div class="table-header">
+                    <div class="header-cell">Priority</div>
+                    <div class="header-cell">Created</div>
+                    <div class="header-cell">Target</div>
+                </div>
+                
+                <div class="table-body">
+                    <div class="table-row">
+                        <div class="priority-cell">
+                            <span class="priority-dot high"></span>
+                            <span>HIGH</span>
+                        </div>
+                        <div class="date-cell">21 May 2025</div>
+                        <div class="date-cell">21 Jun 2025</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="priority-cell">
+                            <span class="priority-dot medium"></span>
+                            <span>MEDIUM</span>
+                        </div>
+                        <div class="date-cell">02 Jul 2025</div>
+                        <div class="date-cell">02 Aug 2025</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="priority-cell">
+                            <span class="priority-dot medium"></span>
+                            <span>MEDIUM</span>
+                        </div>
+                        <div class="date-cell">04 Sep 2025</div>
+                        <div class="date-cell">05 Oct 2025</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="priority-cell">
+                            <span class="priority-dot medium"></span>
+                            <span>MEDIUM</span>
+                        </div>
+                        <div class="date-cell">11 Sep 2025</div>
+                        <div class="date-cell">12 Oct 2025</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="priority-cell">
+                            <span class="priority-dot medium"></span>
+                            <span>MEDIUM</span>
+                        </div>
+                        <div class="date-cell">02 Oct 2025</div>
+                        <div class="date-cell">09 Oct 2025</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="priority-cell">
+                            <span class="priority-dot medium"></span>
+                            <span>MEDIUM</span>
+                        </div>
+                        <div class="date-cell">02 Oct 2025</div>
+                        <div class="date-cell">09 Oct 2025</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="priority-cell">
+                            <span class="priority-dot medium"></span>
+                            <span>MEDIUM</span>
+                        </div>
+                        <div class="date-cell">07 Oct 2025</div>
+                        <div class="date-cell">07 Nov 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <span class="rows-per-page">Rows per page: 25</span>
+                <span class="page-info">1-7 of 7</span>
+                <div class="page-controls">
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- NEW ORDER Modal -->
+    <div id="newOrderModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>NEW ORDER</h2>
+                <button class="close-btn" onclick="closeNewOrderModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Order Details Section -->
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="markets">Markets*</label>
+                            <div class="dropdown-field">
+                                <span>3 markets selected</span>
+                                <button class="remove-btn">×</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="studio">Studio*</label>
+                            <div class="dropdown-field">
+                                <span>Mango Studios</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="target">Target*</label>
+                            <input type="date" id="target" value="2025-11-16">
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority*</label>
+                            <div class="dropdown-field">
+                                <span>Medium</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="purchaseOrder">
+                                Purchase Order #
+                                <i class="fas fa-exclamation-triangle warning-icon"></i>
+                            </label>
+                            <input type="text" id="purchaseOrder" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item Entry Section -->
+                <div class="item-section">
+                    <div class="item-header">
+                        <h3>1. BIG FISHY FISH...</h3>
+                        <button class="add-item-btn">ADD (1/10)</button>
+                    </div>
+                    
+                    <div class="item-details">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gameName">Name*</label>
+                                <input type="text" id="gameName" value="Big Fishy Fish Catcher Slot">
+                            </div>
+                            <div class="form-group">
+                                <label for="orderType">Order Type*</label>
+                                <input type="text" id="orderType" value="Certification">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gameId">Game ID*</label>
+                                <input type="text" id="gameId" value="bffcs-game">
+                            </div>
+                            <div class="form-group">
+                                <label for="rtpVersions">
+                                    Number of RTP Versions*
+                                    <i class="fas fa-exclamation-triangle warning-icon"></i>
+                                </label>
+                                <input type="text" id="rtpVersions" value="3">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="channel">Channel*</label>
+                                <input type="text" id="channel" value="Desktop and Mobile">
+                            </div>
+                            <div class="form-group">
+                                <label for="playUrl">Play URL*</label>
+                                <input type="url" id="playUrl" value="https://play.my.game/game?bffcs-game">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Section -->
+                <div class="features-section">
+                    <div class="feature-item">
+                        <div class="feature-info">
+                            <h4>Jackpot</h4>
+                            <p>Whether or not the game has a jackpot feature as a part of its core logic</p>
+                        </div>
+                        <div class="feature-toggle">
+                            <button class="toggle-btn" data-feature="jackpot">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="toggle-btn active" data-feature="jackpot">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-info">
+                            <h4>Buy Feature</h4>
+                            <p>Whether or not the game allows players to directly buy a feature</p>
+                        </div>
+                        <div class="feature-toggle">
+                            <button class="toggle-btn" data-feature="buyFeature">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="toggle-btn active" data-feature="buyFeature">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-info">
+                            <h4>Buy Chance</h4>
+                            <p>Whether or not the game allows players buy an increase in chance for a particular game event</p>
+                        </div>
+                        <div class="feature-toggle">
+                            <button class="toggle-btn" data-feature="buyChance">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="toggle-btn active" data-feature="buyChance">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-info">
+                            <h4>Gamble</h4>
+                            <p>Whether or not the game allows players to gamble their winnings for a greater final payout</p>
+                        </div>
+                        <div class="feature-toggle">
+                            <button class="toggle-btn active" data-feature="gamble">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="toggle-btn" data-feature="gamble">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-info">
+                            <h4>Side Bet</h4>
+                            <p>Whether or not the game allows players to place a side bet</p>
+                        </div>
+                        <div class="feature-toggle">
+                            <button class="toggle-btn active" data-feature="sideBet">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="toggle-btn" data-feature="sideBet">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Features Section -->
+                <div class="other-features-section">
+                    <div class="feature-info">
+                        <h4>Other Features</h4>
+                        <p>Some other new feature type(s) not mentioned above</p>
+                    </div>
+                    <textarea placeholder="Describe the feature(s) here"></textarea>
+                </div>
+
+                <!-- Package Upload Section -->
+                <div class="package-upload-section">
+                    <p>Please read <a href="#" class="link">provisions guide</a> before uploading a package.</p>
+                    <div class="upload-area">
+                        <label>Package *</label>
+                        <div class="drop-zone">
+                            <span>Drag and drop a .zip archive, or click to browse to the .zip location.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirmation Section -->
+                <div class="confirmation-section">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="confirmation">
+                        <span class="checkmark"></span>
+                        I confirm all Customer Materials related to this order have been provided in full and have undergone and passed QA.
+                    </label>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="place-order-btn" onclick="placeOrder()">
+                    PLACE ORDER
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
