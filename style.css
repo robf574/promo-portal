@@ -965,23 +965,23 @@ body {
 }
 
 .wheel-segment:nth-child(1) .segment-text {
-    transform: translate(-50%, -50%) rotate(0deg) translateY(-80px);
+    transform: translate(-50%, -50%) rotate(36deg) translateY(-60px);
 }
 
 .wheel-segment:nth-child(2) .segment-text {
-    transform: translate(-50%, -50%) rotate(72deg) translateY(-80px);
+    transform: translate(-50%, -50%) rotate(108deg) translateY(-60px);
 }
 
 .wheel-segment:nth-child(3) .segment-text {
-    transform: translate(-50%, -50%) rotate(144deg) translateY(-80px);
+    transform: translate(-50%, -50%) rotate(180deg) translateY(-60px);
 }
 
 .wheel-segment:nth-child(4) .segment-text {
-    transform: translate(-50%, -50%) rotate(216deg) translateY(-80px);
+    transform: translate(-50%, -50%) rotate(252deg) translateY(-60px);
 }
 
 .wheel-segment:nth-child(5) .segment-text {
-    transform: translate(-50%, -50%) rotate(288deg) translateY(-80px);
+    transform: translate(-50%, -50%) rotate(324deg) translateY(-60px);
 }
 
 .wheel-center {
