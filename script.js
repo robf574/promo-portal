@@ -218,6 +218,7 @@ function resetForm() {
 }
 
 function showOrderSuccess() {
+    console.log('showOrderSuccess called - creating spin the wheel modal');
     // Create success modal with spin the wheel
     const successModal = document.createElement('div');
     successModal.className = 'modal-overlay active';
