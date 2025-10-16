@@ -962,31 +962,31 @@ body {
 }
 
 .wheel-segment:nth-child(1) .segment-text {
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .wheel-segment:nth-child(2) .segment-text {
-    top: 15%;
-    left: 75%;
+    top: 10%;
+    left: 80%;
     transform: translate(-50%, -50%);
 }
 
 .wheel-segment:nth-child(3) .segment-text {
-    top: 35%;
-    left: 85%;
+    top: 30%;
+    left: 90%;
     transform: translate(-50%, -50%);
 }
 
 .wheel-segment:nth-child(4) .segment-text {
-    top: 65%;
-    left: 75%;
+    top: 70%;
+    left: 80%;
     transform: translate(-50%, -50%);
 }
 
 .wheel-segment:nth-child(5) .segment-text {
-    top: 75%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
