@@ -911,53 +911,42 @@ body {
     overflow: hidden;
     border: 8px solid #333;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    background: #333;
+    background: conic-gradient(
+        #ff6b6b 0deg 72deg,
+        #4ecdc4 72deg 144deg,
+        #45b7d1 144deg 216deg,
+        #96ceb4 216deg 288deg,
+        #feca57 288deg 360deg
+    );
 }
 
 .wheel-segment {
     position: absolute;
-    width: 50%;
-    height: 50%;
-    transform-origin: 100% 100%;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease;
 }
 
-.wheel-segment::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: inherit;
-    transform-origin: 0 0;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-}
-
 .wheel-segment:nth-child(1) {
-    background: #ff6b6b;
     transform: rotate(0deg);
 }
 
 .wheel-segment:nth-child(2) {
-    background: #4ecdc4;
     transform: rotate(72deg);
 }
 
 .wheel-segment:nth-child(3) {
-    background: #45b7d1;
     transform: rotate(144deg);
 }
 
 .wheel-segment:nth-child(4) {
-    background: #96ceb4;
     transform: rotate(216deg);
 }
 
 .wheel-segment:nth-child(5) {
-    background: #feca57;
     transform: rotate(288deg);
 }
 
@@ -967,11 +956,12 @@ body {
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
+    z-index: 15;
     white-space: nowrap;
+    pointer-events: none;
 }
 
 .wheel-center {
