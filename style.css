@@ -966,11 +966,12 @@ body {
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    position: relative;
-    z-index: 2;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
     white-space: nowrap;
-    margin-top: 20px;
-    margin-left: 20px;
 }
 
 .wheel-center {
