@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RiskCherry Client Portal</title>
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=6">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -66,42 +66,45 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="content-header">
+            <div class="page-title">
                 <h1>ORDERS</h1>
             </div>
 
-            <!-- Status Tabs -->
-            <div class="status-tabs">
-                <div class="tab active">ALL</div>
-                <div class="tab">NEW</div>
-                <div class="tab">PENDING</div>
-                <div class="tab">IN PROGRESS</div>
-                <div class="tab">DONE</div>
-                <div class="tab">BLOCKED</div>
-            </div>
-
-            <!-- Time Period Filters -->
-            <div class="time-filters">
-                <div class="time-tab active">6M</div>
-                <div class="time-tab">12M</div>
-                <div class="time-tab">ALL</div>
-            </div>
-
-            <!-- Top Controls -->
-            <div class="top-controls">
-                <div class="dropdown-filters">
-                    <div class="dropdown-filter">
-                        <span>Filter by Markets</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="dropdown-filter">
-                        <span>Filter by Studios</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
+            <!-- Dark Blue Header Bar -->
+            <div class="content-header">
+                <!-- Status Tabs -->
+                <div class="status-tabs">
+                    <div class="tab active">ALL</div>
+                    <div class="tab">NEW</div>
+                    <div class="tab">PENDING</div>
+                    <div class="tab">IN PROGRESS</div>
+                    <div class="tab">DONE</div>
+                    <div class="tab">BLOCKED</div>
                 </div>
-                <button class="new-order-btn" onclick="openNewOrderModal()">
-                    NEW ORDER
-                </button>
+
+                <!-- Time Period Filters -->
+                <div class="time-filters">
+                    <div class="time-tab active">6M</div>
+                    <div class="time-tab">12M</div>
+                    <div class="time-tab">ALL</div>
+                </div>
+
+                <!-- Top Controls -->
+                <div class="top-controls">
+                    <div class="dropdown-filters">
+                        <div class="dropdown-filter">
+                            <span>Filter by Markets</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="dropdown-filter">
+                            <span>Filter by Studios</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <button class="new-order-btn" onclick="openNewOrderModal()">
+                        NEW ORDER
+                    </button>
+                </div>
             </div>
 
             <!-- White Content Area -->

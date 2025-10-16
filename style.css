@@ -139,26 +139,35 @@ body {
     min-height: 100vh;
 }
 
-/* Dark Blue Header Bar */
-.content-header {
-    background-color: #1e3a8a;
-    color: white;
-    padding: 24px 32px;
-    margin-bottom: 0;
+/* Page Title */
+.page-title {
+    padding: 24px 32px 0 32px;
+    background-color: white;
 }
 
-.content-header h1 {
+.page-title h1 {
     font-size: 32px;
     font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+/* Dark Blue Header Bar */
+.content-header {
+    background-color: #273849;
     color: white;
-    margin: 0 0 16px 0;
+    padding: 16px 32px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 /* Status Tabs - positioned in header */
 .status-tabs {
     display: flex;
     gap: 0;
-    margin-bottom: 16px;
+    margin-bottom: 0;
     background-color: transparent;
     border-radius: 0;
     padding: 0;
@@ -198,6 +207,8 @@ body {
     padding: 0;
     width: fit-content;
     margin-left: auto;
+    align-self: flex-end;
+    margin-top: -40px;
 }
 
 .time-tab {
