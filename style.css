@@ -956,12 +956,39 @@ body {
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 15;
     white-space: nowrap;
     pointer-events: none;
+}
+
+.wheel-segment:nth-child(1) .segment-text {
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wheel-segment:nth-child(2) .segment-text {
+    top: 15%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+.wheel-segment:nth-child(3) .segment-text {
+    top: 35%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.wheel-segment:nth-child(4) .segment-text {
+    top: 65%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+.wheel-segment:nth-child(5) .segment-text {
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .wheel-center {
