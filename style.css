@@ -140,27 +140,23 @@ body {
 }
 
 /* Page Title */
-.page-title {
-    padding: 24px 32px 0 32px;
-    background-color: white;
-}
-
-.page-title h1 {
-    font-size: 32px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin: 0;
-}
-
 /* Dark Blue Header Bar */
 .content-header {
     background-color: #273849;
     color: white;
-    padding: 16px 32px;
+    padding: 24px 32px 16px 32px;
     margin-bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+.orders-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 8px 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 /* Status Tabs - positioned in header */
