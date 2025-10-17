@@ -335,10 +335,15 @@ function spinWheel() {
     wheel.style.transition = 'transform 3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     wheel.style.transform = `rotate(${finalRotation}deg)`;
     
-    // Show result after spin
+    // Show result after spin - calculate actual segment based on final rotation
     setTimeout(() => {
-        const percentage = wheelSegments[randomSegment];
-        showWheelResult(percentage, randomSegment);
+        // Calculate which segment the wheel actually landed on based on final rotation
+        const normalizedRotation = finalRotation % 360;
+        const actualSegment = Math.floor(normalizedRotation / 72);
+        const percentage = wheelSegments[actualSegment];
+        
+        console.log(`Wheel landed on segment ${actualSegment} with percentage ${percentage}%`);
+        showWheelResult(percentage, actualSegment);
         isSpinning = false;
     }, 3000);
 }
