@@ -348,37 +348,29 @@ function showWheelResult(percentage, segmentIndex) {
     const resultModal = document.createElement('div');
     resultModal.className = 'modal-overlay active';
     
-    // Simulate order issues (random for demo)
-    const hasIssues = Math.random() < 0.3; // 30% chance of issues
-    
     resultModal.innerHTML = `
         <div class="modal-content" style="max-width: 500px; text-align: center;">
             <div class="modal-header">
-                <h2 style="color: ${hasIssues ? '#dc3545' : '#28a745'};">
-                    ${hasIssues ? 'Premium Penalty!' : 'Discount Applied!'}
-                </h2>
+                <h2 style="color: #007bff;">Wheel Result!</h2>
                 <button class="close-btn" onclick="this.closest('.modal-overlay').remove()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
                 <div style="font-size: 64px; margin-bottom: 20px;">
-                    ${hasIssues ? '⚠️' : '🎉'}
+                    🎰
                 </div>
-                <div style="font-size: 48px; font-weight: bold; color: ${hasIssues ? '#dc3545' : '#28a745'}; margin-bottom: 20px;">
+                <div style="font-size: 48px; font-weight: bold; color: #007bff; margin-bottom: 20px;">
                     ${percentage}%
                 </div>
                 <p style="font-size: 18px; margin-bottom: 20px;">
-                    ${hasIssues 
-                        ? `Your order has issues. You'll pay ${percentage}% premium penalty.` 
-                        : `Congratulations! You get ${percentage}% discount on your order.`
-                    }
+                    If your order has no issues, you get <strong>${percentage}% discount</strong> on your order.
+                </p>
+                <p style="font-size: 18px; margin-bottom: 30px; color: #dc3545;">
+                    If there are any issues with your order, you'll pay <strong>${percentage}% premium penalty</strong>.
                 </p>
                 <p style="color: #6c757d; margin-bottom: 30px;">
-                    ${hasIssues 
-                        ? 'The penalty will be added to your final invoice.' 
-                        : 'The discount will be applied to your final invoice.'
-                    }
+                    The final amount will be determined based on your order status.
                 </p>
             </div>
             <div class="modal-footer">
