@@ -375,7 +375,7 @@ function showWheelResult(percentage, segmentIndex) {
                     If there are any issues with your order, you'll pay <strong>${percentage}% premium penalty</strong>.
                 </p>
                 <p style="color: #6c757d; margin-bottom: 30px;">
-                    The final amount will be determined based on your order status.
+                    The final amount will be determined based on your order quality!
                 </p>
             </div>
             <div class="modal-footer">
