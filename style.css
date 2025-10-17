@@ -871,6 +871,20 @@ body {
     padding: 20px;
 }
 
+.wheel-modal h3 {
+    font-size: 28px !important;
+    font-weight: bold !important;
+    margin-bottom: 20px !important;
+    color: #333 !important;
+}
+
+.wheel-modal p {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 30px !important;
+    color: #6c757d !important;
+}
+
 .wheel-wrapper {
     position: relative;
     display: inline-block;
